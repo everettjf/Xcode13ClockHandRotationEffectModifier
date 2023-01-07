@@ -8,18 +8,18 @@ import SwiftUI
 import WidgetKit
 
 
-enum Xcode13ClockHandRotationEffectPeriod {
+pubilc enum Xcode13ClockHandRotationEffectPeriod {
     case custom(TimeInterval)
     case secondHand, hourHand, miniuteHand
 }
 
-struct Xcode13ClockHandRotationEffectModifier: ViewModifier {
+pubilc struct Xcode13ClockHandRotationEffectModifier: ViewModifier {
 
     let clockPeriod: WidgetKit._ClockHandRotationEffect.Period
     let clockTimezone: TimeZone
     let clockAnchor: UnitPoint
     
-    init(period: Xcode13ClockHandRotationEffectPeriod, timezone: TimeZone, anchor: UnitPoint) {
+    pubilc init(period: Xcode13ClockHandRotationEffectPeriod, timezone: TimeZone, anchor: UnitPoint) {
         var clockPeriod: WidgetKit._ClockHandRotationEffect.Period = .secondHand
         switch period {
         case .custom(let timeInterval):
@@ -36,7 +36,7 @@ struct Xcode13ClockHandRotationEffectModifier: ViewModifier {
         self.clockAnchor = anchor
     }
 
-    func body(content: Content) -> some View {
+    pubilc func body(content: Content) -> some View {
         content
             ._clockHandRotationEffect(self.clockPeriod, in: self.clockTimezone, anchor: self.clockAnchor)
     }
